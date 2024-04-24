@@ -14,8 +14,8 @@ from os.path import join, dirname
 from pathlib import Path
 
 # Configure logging
-logging.basicConfig(filename='fetch_mindcanvas_db.log', level=logging.INFO,
-                    format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='main.log', level=logging.INFO,
+                    format='[%(asctime)s] - %(levelname)s - %(message)s', datefmt='%d-%b-%Y %I:%M:%S %p')
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -54,9 +54,10 @@ def fetch_and_save_data():
         # Write the response content (JSON data) into the file
         with open(filepath, 'w') as file:
             json.dump(response.json(), file, indent=4)
-        logging.info(f"Data saved to {str(filepath)}")
+        logging.info(f"Data saved to '{str(filename)}'")
     else:
         logging.error(f"Failed to fetch data: {response.status_code} - {response.text}")
+
 
 # Call the function to fetch and save the data
 fetch_and_save_data()

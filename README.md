@@ -16,3 +16,10 @@ To use this project, follow these steps:
 - Python 3.x
 - requests
 - dotenv
+
+
+## Scheduled Execution
+To schedule the execution of this script using a cronjob at 6-hour intervals, add the following line to your crontab (to open crontab use `crontab -e`):
+```bash
+0 */6 * * * /path/env/bin/python3 /path/to/main.py
+```
