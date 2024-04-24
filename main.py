@@ -38,7 +38,7 @@ def fetch_and_save_data():
     if not MINDCANVAS_DATA.exists():
         MINDCANVAS_DATA.mkdir()
     
-    url = MINDCANVAS_HOST
+    url = MINDCANVAS_HOST + "/api/export_db"
     headers = {
         'Authorization': f'Bearer {BEARER_TOKEN}'
     }
