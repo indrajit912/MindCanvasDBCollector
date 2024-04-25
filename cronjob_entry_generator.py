@@ -21,7 +21,7 @@ def generate_cronjob_entry(hours_interval: int, main_script: Path, env_path: Pat
     """
     if env_path is None:
         env_path = main_script.resolve().parent / 'env'
-    cronjob_entry = f"0 */{hours_interval} * * * {env_path}/bin/python {main_script.resolve()}"
+    cronjob_entry = f"0 */{hours_interval} * * * cd {main_script.parent.resolve()} && {env_path}/bin/python {main_script.resolve()}"
 
     return cronjob_entry
 def main():

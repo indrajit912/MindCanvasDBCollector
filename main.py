@@ -14,8 +14,12 @@ from os.path import join, dirname
 from pathlib import Path
 
 # Configure logging
-logging.basicConfig(filename='main.log', level=logging.INFO,
-                    format='[%(asctime)s] - %(levelname)s - %(message)s', datefmt='%d-%b-%Y %I:%M:%S %p')
+logging.basicConfig(
+    level=logging.INFO,
+    format='[%(asctime)s] - %(levelname)s - %(message)s', 
+    datefmt='%d-%b-%Y %I:%M:%S %p',
+    filename="fetch_mindcanvas_db.log"
+)
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
