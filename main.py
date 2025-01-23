@@ -24,7 +24,7 @@ logging.basicConfig(
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-MINDCANVAS_HOST = os.environ.get("MINDCANVAS_HOST")
+MINDCANVAS_HOST = os.environ.get("MINDCANVAS_HOST", "").rstrip("/")
 BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
 MINDCANVAS_DATA = Path(__file__).parent.absolute() / "mindcanvas_data"
 
