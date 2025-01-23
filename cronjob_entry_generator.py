@@ -24,10 +24,12 @@ def generate_cronjob_entry(hours_interval: int, main_script: Path, env_path: Pat
     cronjob_entry = f"0 */{hours_interval} * * * cd {main_script.parent.resolve()} && {env_path}/bin/python {main_script.resolve()}"
 
     return cronjob_entry
+
+
 def main():
     try:
         hours_interval = int(input("Enter hours interval for cronjob: "))
-        main_script = Path(input("Enter the path to the main script: "))
+        main_script = Path(input("Enter the path to the main script (e.g. /home/Documents/main.py): "))
         env_path_input = input("Enter the path to the virtualenv (leave empty for default to `env`): ")
         env_path = None if env_path_input == '' else Path(env_path_input).resolve()
 
